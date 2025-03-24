@@ -6,3 +6,4 @@ scipy
 transformers
 diffusers
 librosa
+torch>=2.1.0
