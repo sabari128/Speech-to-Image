@@ -1,8 +1,7 @@
-torch==2.0.1
+torch
 streamlit
 sounddevice
 numpy
 scipy
 transformers
-torch>=2.1.0  # Newer versions of PyTorch include the 'compiler' attribute
-transformers
+
