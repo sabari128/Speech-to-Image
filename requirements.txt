@@ -4,4 +4,4 @@ sounddevice
 numpy
 scipy
 transformers
-
+diffusers
