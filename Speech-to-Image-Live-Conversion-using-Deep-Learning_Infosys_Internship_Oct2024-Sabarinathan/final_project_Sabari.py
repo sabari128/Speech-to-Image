@@ -13,7 +13,7 @@ from transformers import WhisperProcessor, WhisperForConditionalGeneration
 
 
 # Paths to models
-WHISPER_MODEL_PATH = r"C:\Users\Sabarinathan S\Desktop\streamlit\Speech-to-Image-Live-Conversion-using-Deep-Learning_Infosys_Internship_Oct2024-main\Speech-to-Image-Live-Conversion-using-Deep-Learning_Infosys_Internship_Oct2024-main\models\Whisper_finetuned"
+WHISPER_MODEL_PATH = r"https://github.com/sabari128/Speech-to-Image/tree/main/whisper_model"
 SD_MODEL_ID = "CompVis/stable-diffusion-v1-4"
 
 # Device configuration
