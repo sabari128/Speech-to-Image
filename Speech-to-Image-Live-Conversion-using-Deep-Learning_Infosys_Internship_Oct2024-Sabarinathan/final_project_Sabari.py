@@ -10,38 +10,7 @@ from time import sleep
 import os
 from transformers import WhisperProcessor, WhisperForConditionalGeneration
 
-import streamlit as st
-import os
-from transformers import WhisperProcessor, WhisperForConditionalGeneration
 
-# ✅ Ensure this is the first Streamlit command!
-st.set_page_config(page_title="Speech-to-Image Generator", layout="wide")
-
-def load_whisper_model():
-    model_name = "openai/whisper-small"
-    cache_dir = "./cache"
-    os.environ["TRANSFORMERS_CACHE"] = cache_dir
-
-    try:
-        processor = WhisperProcessor.from_pretrained(model_name, cache_dir=cache_dir)
-        model = WhisperForConditionalGeneration.from_pretrained(model_name, cache_dir=cache_dir)
-        st.success("✅ Whisper model loaded successfully!")
-        return processor, model
-    except OSError as e:
-        st.error("❌ Model loading failed. Check model name, internet connection, or cache directory.")
-        st.error(f"Error details: {e}")
-        st.stop()
-
-processor, model = load_whisper_model()
-
-st.title("🎤 Speech-to-Image Generator")
-st.write("Record your audio, transcribe it, perform sentiment analysis, and generate an image.")
-
-
-
-
-
-processor, model = load_whisper_model()
 
 # Paths to models
 WHISPER_MODEL_PATH = r"C:\Users\Sabarinathan S\Desktop\streamlit\Speech-to-Image-Live-Conversion-using-Deep-Learning_Infosys_Internship_Oct2024-main\Speech-to-Image-Live-Conversion-using-Deep-Learning_Infosys_Internship_Oct2024-main\models\Whisper_finetuned"
