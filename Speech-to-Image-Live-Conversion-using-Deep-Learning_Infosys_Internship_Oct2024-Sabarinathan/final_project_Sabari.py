@@ -8,12 +8,36 @@ from diffusers import StableDiffusionPipeline
 import librosa
 from time import sleep
 import os
+from transformers import WhisperProcessor, WhisperForConditionalGeneration
 
 try:
     from transformers import WhisperProcessor, WhisperForConditionalGeneration, pipeline
 except ImportError:
     os.system('pip install transformers')
     from transformers import WhisperProcessor, WhisperForConditionalGeneration, pipeline
+
+
+def load_whisper_model():
+    model_name = "openai/whisper-small"
+
+    # Set a local cache directory
+    cache_dir = "./cache"
+    os.environ["TRANSFORMERS_CACHE"] = cache_dir
+
+    try:
+        # Attempt to load the processor and model
+        processor = WhisperProcessor.from_pretrained(model_name, cache_dir=cache_dir)
+        model = WhisperForConditionalGeneration.from_pretrained(model_name, cache_dir=cache_dir)
+
+        st.success("✅ Whisper model loaded successfully!")
+        return processor, model
+
+    except OSError as e:
+        st.error("❌ Model loading failed. Check model name, internet connection, or cache directory.")
+        st.error(f"Error details: {e}")
+        st.stop()
+
+processor, model = load_whisper_model()
 
 # Paths to models
 WHISPER_MODEL_PATH = r"C:\Users\Sabarinathan S\Desktop\streamlit\Speech-to-Image-Live-Conversion-using-Deep-Learning_Infosys_Internship_Oct2024-main\Speech-to-Image-Live-Conversion-using-Deep-Learning_Infosys_Internship_Oct2024-main\models\Whisper_finetuned"
