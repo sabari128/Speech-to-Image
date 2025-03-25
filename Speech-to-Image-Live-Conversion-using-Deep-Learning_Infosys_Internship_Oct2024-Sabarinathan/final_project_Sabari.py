@@ -7,6 +7,13 @@ from transformers import WhisperProcessor, WhisperForConditionalGeneration, pipe
 from diffusers import StableDiffusionPipeline
 import librosa
 from time import sleep
+import os
+
+try:
+    from transformers import WhisperProcessor, WhisperForConditionalGeneration, pipeline
+except ImportError:
+    os.system('pip install transformers')
+    from transformers import WhisperProcessor, WhisperForConditionalGeneration, pipeline
 
 # Paths to models
 WHISPER_MODEL_PATH = r"C:\Users\Sabarinathan S\Desktop\streamlit\Speech-to-Image-Live-Conversion-using-Deep-Learning_Infosys_Internship_Oct2024-main\Speech-to-Image-Live-Conversion-using-Deep-Learning_Infosys_Internship_Oct2024-main\models\Whisper_finetuned"
